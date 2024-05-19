@@ -4,8 +4,8 @@ Quiz 2 - Team 14
 
 Nama Kelompok
 
-- Aloka Aryayudha Pratama
+- Aloka Aryayudha Pratama (Login)
 -
 -
 -
-
+-
