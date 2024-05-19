@@ -1,11 +1,10 @@
-# Q2-Sanber14
+Quiz 2 - Team 14 - Btach 56
 
-Quiz 2 - Team 14
 
-Nama Kelompok
-
-- Create an Account - Aloka  
-- Login - dhila 
-- My Account > Edit Account Information & Edit Address - Alvio 
-- Choose productsand Update Shopping Cart 
-- Proceed to Checkout
+| Nama Anggota              | Pembagian Tugas                                      |
+| --------------------------| -----------------------------------------------------|
+| Aloka Aryayudha Pratama   | Create an Account                                    |
+| Fadhila Purboningrum      | Login                                                |
+| Alvio Yunita Putri        | My Account > Edit Account Information & Edit Address |
+|                           | Choose productsand Update Shopping Cart              |
+|                           | Proceed to Checkout                                  |
