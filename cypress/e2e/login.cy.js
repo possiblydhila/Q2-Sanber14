@@ -22,4 +22,5 @@ describe('login test', () => {
         cy.get('#send2').click({ timeout: 3000 })
         cy.get('.message-error').should('be.visible')
     })
+    // hallotest
 })
