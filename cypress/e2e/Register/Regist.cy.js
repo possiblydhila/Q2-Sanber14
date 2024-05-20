@@ -22,7 +22,7 @@ describe('Regist', () => {
   const EmailDummy = RandomEmail();
 
 
-  it.only('Random name', () => {
+  it('Random name', () => {
     cy.visit('https://magento.softwaretestingboard.com/customer/account/create/')
     cy.get('.panel > .header > :nth-child(3) > a').click()
     cy.nama(FirstName,LastName )
@@ -33,7 +33,7 @@ describe('Regist', () => {
   it('Berhasil Registrasi', () => {
     cy.visit('https://magento.softwaretestingboard.com/customer/account/create/')
     cy.get('.panel > .header > :nth-child(3) > a').click()
-    cy.nama('Dummy','dumdum')
+    cy.nama(FirstName,LastName )
     cy.ketikemail(EmailDummy,'A@1234567')
     cy.url().should('include','customer')
   })
@@ -41,7 +41,7 @@ describe('Regist', () => {
   it('Email sudah digunakan', () => {
     cy.visit('https://magento.softwaretestingboard.com/customer/account/create/')
     cy.get('.panel > .header > :nth-child(3) > a').click()
-    cy.nama('Dummy','dumdum')
+    cy.nama(FirstName,LastName)
     cy.ketikemail('dummy22@gmail.com','A@123456')
    // cy.get('.message-error > div').should('contain.text','There is already an account with this email address. If you are sure that it is your email address, ')
     cy.kosong('.message-error > div','There is already an account with this email address. If you are sure that it is your email address,')
@@ -50,7 +50,7 @@ describe('Regist', () => {
   it('Nama Akhir kosong', () => {
     cy.visit('https://magento.softwaretestingboard.com/customer/account/create/')
     cy.get('.panel > .header > :nth-child(3) > a').click()
-    cy.get('#firstname').type('Dummy')
+    cy.get('#firstname').type(FirstName)
     cy.ketikemail('asdasdd@gmail.com','A@123456')
     cy.kosong('#maincontent','This is a required field.')
   })
@@ -58,7 +58,7 @@ describe('Regist', () => {
   it('Nama Awal kosong', () => {
     cy.visit('https://magento.softwaretestingboard.com/customer/account/create/')
     cy.get('.panel > .header > :nth-child(3) > a').click()
-    cy.get('#lastname').type('dumdum')
+    cy.get('#lastname').type(LastName)
     cy.ketikemail('asdasdd@gmail.com','A@123456')
     //cy.get('#maincontent').should('contain.text','This is a required field.')
     cy.kosong('#maincontent','This is a required field.')
@@ -68,7 +68,7 @@ describe('Regist', () => {
   it('Email Salah - Command', () => {
     cy.visit('https://magento.softwaretestingboard.com/customer/account/create/')
     cy.get('.panel > .header > :nth-child(3) > a').click()
-    cy.nama('Dummy','dumdum')
+    cy.nama(FirstName,LastName)
     cy.ketikemail('asdasd$gmail.com','A@123456')
     cy.kosong('#maincontent','Please enter a valid email address (Ex: johndoe@domain.com).')
   })
@@ -77,7 +77,7 @@ describe('Regist', () => {
   it('Password tanpa symbol', () => {
     cy.visit('https://magento.softwaretestingboard.com/customer/account/create/')
     cy.get('.panel > .header > :nth-child(3) > a').click()
-    cy.nama('Dummy','dumdum')
+    cy.nama(FirstName,LastName)
     cy.ketikemail(EmailDummy,'12313213')
     cy.kosong('#maincontent','Minimum of different classes of characters in password is 3. Classes of characters: Lower Case, Upper Case, Digits, Special Characters.')
   })
@@ -85,7 +85,7 @@ describe('Regist', () => {
   it('Password Berbeda', () => {
     cy.visit('https://magento.softwaretestingboard.com/customer/account/create/')
     cy.get('.panel > .header > :nth-child(3) > a').click()
-    cy.nama('Dummy','dumdum')
+    cy.nama(FirstName,LastName)
     cy.ketik1(EmailDummy,'A@123456','A@113456')
     cy.kosong('#maincontent','Please enter the same value again.')
   })
@@ -127,21 +127,23 @@ describe('Regist', () => {
     })
   })
 
-  it('Test POM 1', () => {
+  it.only('Test POM 1', () => {
     cy.visit('https://magento.softwaretestingboard.com/customer/account/create/')
-    cy.get(RegistPage.nama_awl).type('dumyss')
-    cy.get(RegistPage.nama_akh).type('dsada')
-    cy.get(RegistPage.email_add).type('Dummyeer@gmail.com')
+    cy.get(RegistPage.nama_awl).type(FirstName)//cy.nama(FirstName,LastName)
+    cy.get(RegistPage.nama_akh).type(LastName)
+    cy.get(RegistPage.email_add).type(EmailDummy)
     cy.get(RegistPage.passwd).type('sadasd@Asda123')
     cy.get(RegistPage.repasswd).type('sadasd@Asda123')
-    cy.get(RegistPage.error_msg).should('be.visible')
+    cy.get('#form-validate > .actions-toolbar > div.primary > .action').click()
+    cy.get(RegistPage.error_msg).should('be.visible') //Kalau salah menggunakan error_msg
+    //cy.url().should('include','customer') 
   })
 
   it('Test POM 2', () => {
     cy.visit('https://magento.softwaretestingboard.com/customer/account/create/')
-    RegistPage.inputNama('Kuda')
-    RegistPage.inputNamaakhir('Liar')
-    RegistPage.inputEmail('kudaliar@gmail.com')
+    RegistPage.inputNama(FirstName)
+    RegistPage.inputNamaakhir(LastName)
+    RegistPage.inputEmail(EmailDummy)
     RegistPage.inputPass('A@1234567')
     RegistPage.inputRepass('A@1234567')
     cy.get('#form-validate > .actions-toolbar > div.primary > .action').click()
