@@ -106,7 +106,7 @@ describe('Regist', () => {
   })
 
 
-  // Positive Test Sukses mendaftar
+  // Negative Test
   it('TC - 11 : Berhasil Mendaftar', () => {
     cy.visit('https://magento.softwaretestingboard.com/customer/account/create/')
     const navigationPage = new NavigationPage();
@@ -120,8 +120,8 @@ describe('Regist', () => {
     navigationPage.verifError();
   });
 
-  // Positive Test Sukses mendaftar
-  it.only('TC - 12 : First Name', () => {
+  // Negative Test
+  it.only('TC - 12 : FirstName Tidak Ada', () => {
     cy.visit('https://magento.softwaretestingboard.com/customer/account/create/')
     const navigationPage = new NavigationPage();
     const userData = UserData.DataUser2;
