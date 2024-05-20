@@ -1,25 +1,30 @@
-class RegistPage{
-    error_msg = '#maincontent'
-    nama_awl = '#firstname'
-    nama_akh = '#lastname'
-    email_add = '#email_address'
+class NavigatorPage{
+    
+    first = '#firstname'
+    last = '#lastname'
+    email = '#email_address'
     passwd = '#password'
-    repasswd = '#password-confirmation'
+    cpasswd = '#password-confirmation'
+    submit = '#submit'
+    error_msg = '#maincontent'
 
-    inputNama(nama_awl){
-        cy.get(this.nama_awl).clear().type(nama_awl)
+    inputNama(first){
+        cy.get(this.first).clear().type(first)
     }
-    inputNamaakhir(nama_akh){
-        cy.get(this.nama_akh).clear().type(nama_akh)
+    inputNamaakhir(last){
+        cy.get(this.last).clear().type(last)
     }
-    inputEmail(email_add){
-        cy.get(this.email_add).clear().type(email_add)
+    inputEmail(email){
+        cy.get(this.email).clear().type(email)
     }
     inputPass(passwd){
         cy.get(this.passwd).clear().type(passwd)
     }
-    inputRepass(repasswd){
-        cy.get(this.repasswd).clear().type(repasswd)
+    inputRepass(cpasswd){
+        cy.get(this.cpasswd).clear().type(cpasswd)
+    }
+    InputButton(submit){
+        cy.cy.get('#form-validate > .actions-toolbar > div.primary > .action').click()
     }
     verifError(error_msg){
         cy.get(this.error_msg).should('be.visible');
@@ -27,4 +32,4 @@ class RegistPage{
 
 }
 
-export default new RegistPage()
+export default new NavigatorPage()
