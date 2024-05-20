@@ -134,7 +134,7 @@ describe('Regist', () => {
   });
 
   
-  // Negative Test Sukses mendaftar
+  // Negative Test 
   it('TC - 13 : Lastname tidak ada', () => {
     cy.visit('https://magento.softwaretestingboard.com/customer/account/create/')
     const navigationPage = new NavigationPage();
