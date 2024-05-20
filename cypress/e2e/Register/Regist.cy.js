@@ -2,13 +2,33 @@ import RegistPage from "../../support/pageObjectRegist/RegistPage";
 
 describe('Regist', () => {
 
+
+  function RandomFirst() {
+    const randomString = Math.random().toString(36).substring(2, 10);
+    return randomString;
+}
+  function RandomLast() {
+    const randomString = Math.random().toString(36).substring(2, 10);
+    return randomString;
+}
+
   function RandomEmail() {
     const randomString = Math.random().toString(36).substring(2, 10);
     const EmailDummy = randomString + "@gmail.com";
     return EmailDummy;
   }
+  const FirstName = RandomFirst();
+  const LastName = RandomLast();
   const EmailDummy = RandomEmail();
 
+
+  it.only('Random name', () => {
+    cy.visit('https://magento.softwaretestingboard.com/customer/account/create/')
+    cy.get('.panel > .header > :nth-child(3) > a').click()
+    cy.nama(FirstName,LastName )
+    cy.ketikemail(EmailDummy,'A@1234567')
+    cy.url().should('include','customer')
+  })
   
   it('Berhasil Registrasi', () => {
     cy.visit('https://magento.softwaretestingboard.com/customer/account/create/')
@@ -117,7 +137,7 @@ describe('Regist', () => {
     cy.get(RegistPage.error_msg).should('be.visible')
   })
 
-  it.only('Test POM 2', () => {
+  it('Test POM 2', () => {
     cy.visit('https://magento.softwaretestingboard.com/customer/account/create/')
     RegistPage.inputNama('Kuda')
     RegistPage.inputNamaakhir('Liar')
