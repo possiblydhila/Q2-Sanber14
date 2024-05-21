@@ -1,0 +1,33 @@
+{
+    "DataUser1": {
+      "firstnama": "kudaa",
+      "last": "sukaa",
+      "email": "embee@gmail.com",
+      "passwd": "A@1234567",
+      "cpasswd": "A@1234567"
+    },
+  
+    "DataUser2": {
+        "firstnama": "kudab",
+        "last": "sukab",
+        "email": "embee1@gmail.com",
+        "passwd": "A@1234567",
+        "cpasswd": "A@1234567"
+    },
+
+    "DataUser3": {
+        "firstnama": "kudac",
+        "last": "sukac",
+        "email": "embee2@gmail.com",
+        "passwd": "A@1234567",
+        "cpasswd": "A@1234567"
+      },
+      "DataUser4": {
+        "firstnama": "kudad",
+        "last": "sukad",
+        "email": "embee3@gmail.com",
+        "passwd": "A@1234567",
+        "cpasswd": "A@1234567"
+      }
+
+  }
