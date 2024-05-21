@@ -25,9 +25,9 @@
 //     // final
 // })
 
-import NavigationPage from "../../support/Navigator/Navigation";
-import DataInvalid from "../../fixtures/DataInvalid.json";
-import UserData from "../../fixtures/UserData.json";
+import NavigationPage from "../support/Navigator/Navigation";
+import DataInvalid from "../fixtures/DataInvalid.json";
+import UserData from "../fixtures/UserData.json";
 
 describe('login test', () => {
     beforeEach( () => {
@@ -36,21 +36,21 @@ describe('login test', () => {
     });
 
     it('Login Page Loaded', () => {
-        NavigationPage.verifyLoginPage()
+        const navigationPage = new NavigationPage();
+        navigationPage.verifyLoginPage()
     })
 
     it('Login Success', () => {
-        cy.login(DataInvalid.valid.email, DataInvalid.valid.pass)
-        cy.url().should('include', 'customer/account')
+        const navigationPage = new NavigationPage()
+        navigationPage.inputCredentials()
     })
 
-    it('Login Failed - wrong Credentials', () => {
-        cy.fixture('DataInvalid.json').then((data) => {
-            data.invalid.forEach((userdata) => {
-                console.log(userdata.user, userdata.pass);
-                cy.get('.message-error').should('be.visible')
-            });
+    it('Login Failed', () => {
+        cy.get('#email').type('johnn@gmail.com')
+        cy.get('#pass').type('123')
+        cy.get('#send2').click({ timeout: 3000 })
+        cy.get('.message-error').should('be.visible')
     })
+
 }) 
 
-})

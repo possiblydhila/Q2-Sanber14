@@ -51,9 +51,11 @@ class NavigationPage {
         cy.get(this.pageTitle).should('contain.text', 'Customer Login')
     }
     
-    inputCredentials(emailLogin, pass) {
-        cy.get(this.emailLogin).clear().type(emailLogin)
-        cy.get(this.pass).clear().type(pass)
+    inputCredentials() {
+        cy.get('#email').type('johnisawesome@email.com')
+        cy.get('#pass').type('@john123')
+        cy.get('#send2').click
+        cy.url().should('include', 'customer/account')
     }
 }
 

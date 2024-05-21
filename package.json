@@ -1,5 +1,12 @@
 {
   "scripts": {
     "regist": "npx cypress run --browser 'chrome' --spec cypress/e2e/Register/Regist.cy.js"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.1.4",
+    "webpack-validator": "^1.9.0"
+  },
+  "dependencies": {
+    "cypress": "^13.9.0"
   }
 }
