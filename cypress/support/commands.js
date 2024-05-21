@@ -53,3 +53,10 @@ Cypress.Commands.add('nama', (awal,akhir) => {
 Cypress.Commands.add('kosong', (elemen,notif) => {
     cy.get(elemen).should('contain.text',notif)
 })
+
+Cypress.Commands.add('login', (email, password) => {
+    cy.get('#email').type(email) 
+    cy.get('#pass').type(password) 
+    cy.get('#send2').click({timeout: 3000})
+    // cy.url().should('include', '/customer/account/login')
+});

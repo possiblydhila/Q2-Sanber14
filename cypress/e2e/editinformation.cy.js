@@ -1,4 +1,4 @@
-describe('login test', () => {
+describe('edit account test', () => {
 
     beforeEach(() => {
         cy.visit('https://magento.softwaretestingboard.com/customer/account/login')

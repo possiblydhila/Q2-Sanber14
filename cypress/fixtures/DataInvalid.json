@@ -2,7 +2,8 @@
 
 
     "valid": {
-        "email" : "Dummy@gmail.com"
+        "email" : "johnisawesome@gmail.com",
+        "pass"  : "@john123"
     },
     "invalid" : [
         {
